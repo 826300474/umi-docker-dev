@@ -25,7 +25,7 @@ jobs:
               run: |
                   ssh -i ~/.ssh/id_rsa1 root@192.144.236.221 "
                     cd /home/umi-docker-dev;
-                    git clone https://github.com/826300474/umi-docker-dev.git;
+                    git pull;
                     # 启动 docker
                     sudo docker build -t umi-docker-dev .;
                     sudo docker stop umi-docker-dev-name;
