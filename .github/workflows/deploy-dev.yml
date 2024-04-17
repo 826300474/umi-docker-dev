@@ -29,6 +29,7 @@ jobs:
                     # 启动 docker
                     sudo docker build -t umi-docker-dev .;
                     sudo docker stop umi-docker-dev-name;
+                    sudo docker rm umi-docker-dev-name;
                     sudo docker run --name umi-docker-dev-name -d -p 8000:8000 umi-docker-dev
                   "
             - name: delete ssh key # 删除 ssh key
