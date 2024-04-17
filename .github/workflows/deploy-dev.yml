@@ -2,6 +2,8 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 # github actions 中文文档 https://docs.github.com/cn/actions/getting-started-with-github-actions
 
+ssh -i ~/.ssh/aaa.pem root@192.144.236.221
+
 name: deploy for master
 
 on:
@@ -15,12 +17,21 @@ jobs:
 
         steps:
             - uses: actions/checkout@v2
+            - name: set ssh key # 临时设置 ssh key
+              run: |
+                  mkdir -p ~/.ssh/
+                  echo "${{secrets.PRIVATE_KEY}}" > ~/.ssh/id_rsa111 # secret 在这里配置 https://github.com/imooc-lego/biz-editor-server/settings/secrets
+                  chmod 600 ~/.ssh/id_rsa111
+                  ssh-keyscan "192.144.236.221" >> ~/.ssh/known_hosts
             - name: deploy # 部署
               run: |
-                  ssh 192.144.236.221 "
+                  ssh -i ~/.ssh/id_rsa111 root@192.144.236.221 "
                     cd /home/umi-docker-dev;
                     sudo git pull;
                     # 启动 docker
                     sudo docker build -t umi-docker-dev .;
                     sudo docker run -d -p 8000:8000 umi-docker-dev
                   "
+             - name: delete ssh key # 删除 ssh key
+              run: rm -rf ~/.ssh/id_rsa111
+
