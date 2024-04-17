@@ -1,0 +1,26 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+# github actions 中文文档 https://docs.github.com/cn/actions/getting-started-with-github-actions
+
+name: deploy for master
+
+on:
+    push:
+        branches:
+            - 'master' # 只针对 dev 分支
+
+jobs:
+    deploy-dev:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: deploy # 部署
+              run: |
+                  ssh 192.144.236.221 "
+                    cd /home/umi-docker-dev;
+                    git pull;
+                    # 启动 docker
+                    sudo docker build -t umi-docker-dev .;
+                    sudo docker run -d -p 8000:8000 umi-docker-dev
+                  "
