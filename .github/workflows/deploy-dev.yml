@@ -28,7 +28,8 @@ jobs:
                     sudo git pull;
                     # 启动 docker
                     sudo docker build -t umi-docker-dev .;
-                    sudo docker run -d -p 8000:8000 umi-docker-dev
+                    sudo docker stop umi-docker-dev-name;
+                    sudo docker run --name umi-docker-dev-name -d -p 8000:8000 umi-docker-dev
                   "
             - name: delete ssh key # 删除 ssh key
               run: rm -rf ~/.ssh/id_rsa1
