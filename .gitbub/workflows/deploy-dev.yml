@@ -7,7 +7,7 @@ name: deploy for master
 on:
     push:
         branches:
-            - 'master' # 只针对 dev 分支
+            - 'master'
 
 jobs:
     deploy-dev:
@@ -19,7 +19,7 @@ jobs:
               run: |
                   ssh 192.144.236.221 "
                     cd /home/umi-docker-dev;
-                    git pull;
+                    sudo git pull;
                     # 启动 docker
                     sudo docker build -t umi-docker-dev .;
                     sudo docker run -d -p 8000:8000 umi-docker-dev
