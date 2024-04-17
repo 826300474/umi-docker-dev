@@ -1,0 +1,48 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.17.3/libexec/bin/yarn.js
+
+PATH: 
+  /var/folders/mk/jzq3s_hj1xg50qnb7l4ch8kr0000gn/T/yarn--1713341020130-0.18547473847508722:/Users/zhiyuan/.config/yarn/global/node_modules/.bin:/Users/zhiyuan/.config/yarn/link/node_modules/.bin:/usr/local/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/bin/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/local/sbin:/Users/zhiyuan/Documents/flutter/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Users/zhiyuan/Library/Android/sdk/platform-tools:/Users/zhiyuan/Library/Android/sdk/tools:/Users/zhiyuan/Library/Android/sdk/build-tools/29.0.2:/Users/zhiyuan/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  20.12.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: certificate has expired
+      at TLSSocket.onConnectSecure (node:_tls_wrap:1674:34)
+      at TLSSocket.emit (node:events:518:28)
+      at TLSSocket._finishInit (node:_tls_wrap:1085:8)
+      at ssl.onhandshakedone (node:_tls_wrap:871:12)
+
+npm manifest: 
+  {
+    "private": true,
+    "author": "柴志远 <chaizhiyuan@vsan.cn>",
+    "scripts": {
+      "dev": "umi dev",
+      "build": "umi build",
+      "postinstall": "umi setup",
+      "setup": "umi setup",
+      "start": "npm run dev"
+    },
+    "dependencies": {
+      "umi": "^4.1.9"
+    },
+    "devDependencies": {
+      "@types/react": "^18.0.33",
+      "@types/react-dom": "^18.0.11",
+      "typescript": "^5.0.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
