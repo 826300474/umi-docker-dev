@@ -3,7 +3,7 @@ import yayJpg from '../assets/yay.jpg';
 export default function HomePage() {
   return (
     <div>
-      <h2>Yay! Welcome to umi-docker-dev111122222!</h2>
+      <h2>Yay! Welcome to umi-docker-dev!</h2>
       <p>
         <img src={yayJpg} width="388" />
       </p>
